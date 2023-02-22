@@ -1,7 +1,7 @@
 # display contents of each urn starting with n urns and r balls 
 # balls is a list of which cups balls 1..x i,e. abcd go into
 display_urn_state <- function(number_of_urns,balls) {
-  colors <- c('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z')
+  colors <- c('b', 'a', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z')
   #a = balls[1]
   #b = balls[2]
   #c = balls[3]
@@ -18,6 +18,11 @@ display_urn_state <- function(number_of_urns,balls) {
         allurn[[j]] <- append(allurn[[j]], colors[i])
       }
     }
+  }
+  # we do this to make values canonical so bac=abc
+  for (i in 1:number_of_urns) {
+    # all this to sort a list???
+    allurn[[i]] <- as.list(sort(unlist(allurn[[i]])))
   }
   finalurn <- list()
   for (i in 1:number_of_urns) {
@@ -48,4 +53,4 @@ print_sample_space_balls_urns <- function(number_of_balls, number_of_urns) {
   print(length(all_ball_combos[[1]]))
 }
 
-print_sample_space_balls_urns(3,3)
+print_sample_space_balls_urns(4,4)
