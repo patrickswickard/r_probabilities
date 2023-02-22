@@ -1,7 +1,7 @@
 # display contents of each urn starting with n urns and r balls 
 # balls is a list of which cups balls 1..x i,e. abcd go into
 display_urn_state <- function(number_of_urns,balls) {
-  colors <- c('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z')
+  colors <- c('a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z')
   #a = balls[1]
   #b = balls[2]
   #c = balls[3]
@@ -57,4 +57,4 @@ print_sample_space_balls_urns <- function(number_of_balls, number_of_urns) {
   print(length(unique_sample_space))
 }
 
-print_sample_space_balls_urns(3,3)
+print_sample_space_balls_urns(5,7)
