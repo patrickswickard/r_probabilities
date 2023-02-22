@@ -1,7 +1,7 @@
 # display contents of each urn starting with n urns and r balls 
 # balls is a list of which cups balls 1..x i,e. abcd go into
 display_urn_state <- function(number_of_urns,balls) {
-  colors <- c('b', 'a', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z')
+  colors <- c('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z')
   #a = balls[1]
   #b = balls[2]
   #c = balls[3]
@@ -29,7 +29,7 @@ display_urn_state <- function(number_of_urns,balls) {
     finalurn[[i]] <- paste(allurn[[i]], collapse='')
   }
   dfinalurn = paste(finalurn, collapse='|')
-  print(dfinalurn)
+  return(dfinalurn[[1]])
 }
 
 print_sample_space_balls_urns <- function(number_of_balls, number_of_urns) {
@@ -46,11 +46,15 @@ print_sample_space_balls_urns <- function(number_of_balls, number_of_urns) {
 
   lastindex <- length(all_ball_combos[,1])
   print("Sample space:")
+  sample_space <- list()
   for (i in 1:lastindex) {
-    display_urn_state(number_of_urns,all_ball_combos[i,])
+    dfinalurn <- display_urn_state(number_of_urns,all_ball_combos[i,])
+    sample_space <- append(sample_space,dfinalurn)
   }
-  print("Size of sample space:")
-  print(length(all_ball_combos[[1]]))
+  unique_sample_space <- unique(unlist(sample_space))
+  print(unique_sample_space)
+  print("Size of unique sample space:")
+  print(length(unique_sample_space))
 }
 
-print_sample_space_balls_urns(4,4)
+print_sample_space_balls_urns(3,3)
